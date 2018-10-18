@@ -15,24 +15,24 @@ public class Pruebas {
 		Carrera carrera = new Carrera();
 		CarreraDao cDao = new CarreraDao();
 		
-		carrera.setCodigo("115");
+		carrera.setCodigo("118");
 		carrera.setNombre("Ingeniería de Sistemas");
 		carrera.setSemestres(10);
 		carrera.setCreditos(160);
 		
 		System.out.println(cDao.listar().size());
 		
-		//cDao.insertar(carrera);
+		cDao.insertar(carrera);
 		
 		Carrera c2 = cDao.buscar("118");
-		
-		System.out.println(c2.getNombre());
-		
-		c2.setNombre("Ing MINAS");
-		cDao.actualizar(c2);
-		c2 = cDao.buscar("118");
-		System.out.println(c2.getNombre());
-		cDao.eliminar(c2);
+		if(c2!=null){
+			System.out.println(c2.getNombre());
+			c2.setNombre("Ing MINAS");
+			cDao.actualizar(c2);
+			c2 = cDao.buscar("118");
+			System.out.println(c2.getNombre());
+			//cDao.eliminar(c2);
+		}
 
 	}
 
